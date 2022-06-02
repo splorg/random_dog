@@ -1,7 +1,11 @@
-<button>GENERATE DOG</button>
-<br>
-<br>
-<figure>
-    <img id="imageDog" src="../assets/doge.webp" alt="BEST DOG EVER">
-    <figcaption>DOG DOG DOG DOG DOG DOG DOG</figcaption>
-</figure>
+<div class="container">
+    <button (click)="getDog()">GENERATE DOG</button>
+    <div class="dogDiv" *ngIf="this.dog">
+        <figure class="imgContainer">
+            <img id="imageDog" [src]="this.dog.url" alt="BEST DOG EVER">
+            <figcaption>DOG DOG DOG DOG DOG DOG DOG</figcaption>
+        </figure>
+
+        <p>{{(this.dog.fileSizeBytes / 1024).toFixed(2)}}kB</p>
+    </div>
+</div>
